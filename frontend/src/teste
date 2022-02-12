@@ -1,0 +1,61 @@
+import axios from 'axios';
+
+// https://www.educative.io/edpresso/what-is-access-control-allow-origin-in-axios
+// https://www.npmjs.com/package/cors
+// https://documenter.getpostman.com/view/8854915/Szf26WHn#5196a029-ce12-4603-aa10-9476d15da6e9
+// https://www.semicolonworld.com/question/72075/make-request-to-soap-endpoint-using-axios
+
+/*
+
+let xmls='<?xml version="1.0" encoding="utf-8"?>\n<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">\n  <soap:Body>\n    <NumberToDollars xmlns="http://www.dataaccess.com/webservicesserver/">\n      <dNum>500</dNum>\n    </NumberToDollars>\n  </soap:Body>\n</soap:Envelope>';
+
+axios.post('https://www.dataaccess.com/webservicesserver/NumberConversion.wso?WSDL',
+            xmls,
+            { headers: {
+                    'Content-Type': 'text/xml',
+                    //'Access-Control-Allow-Origin': '*'
+            },
+            }).then(res => {
+             console.log(res);
+            }).catch(err => {
+                console.log(err)
+            });
+*/
+/*
+var data = '<?xml version="1.0" encoding="utf-8"?>\n<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">\n  <soap:Body>\n    <Multiply xmlns="http://tempuri.org/">\n      <intA>5</intA>\n      <intB>5</intB>\n    </Multiply>\n  </soap:Body>\n</soap:Envelope>';
+
+var config = {
+  method: 'post',
+  //baseURL: 'http://www.dneonline.com/calculator.asmx', 
+  url: 'http://www.dneonline.com/calculator.asmx',
+  headers: { 
+    'Content-Type': 'text/xml', 
+    'SOAPAction': 'http://tempuri.org/Multiply',
+    'Access-Control-Allow-Origin': '*'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+*/
+
+// http://www.example.com/exampleapi
+
+let xmls='<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"\n                            xmlns:web="http://www.webserviceX.NET/">\n            <soapenv:Header/>\n            <soapenv:Body>\n              <web:ConversionRate>\n                <web:FromCurrency>INR</web:FromCurrency>\n                <web:ToCurrency>USD</web:ToCurrency>\n              </web:ConversionRate>\n            </soapenv:Body>\n          </soapenv:Envelope>';
+
+axios.post('http://www.webservicex.com/CurrencyConvertor.asmx?wsdl',
+           xmls,
+           {headers:
+                {
+                    'Content-Type': 'text/xml',
+                    "Access-Control-Allow-Origin" : "*",
+                }
+           }).then(res=>{
+             console.log(res);
+           }).catch(err=>{console.log(err)});

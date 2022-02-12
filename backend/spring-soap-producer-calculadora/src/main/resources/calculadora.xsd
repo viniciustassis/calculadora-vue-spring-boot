@@ -1,0 +1,92 @@
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="http://example.com/calculadora"
+    targetNamespace="http://example.com/calculadora"
+    elementFormDefault="qualified">
+    <!-- xmlns:tns="http://example.com/calculadora-web-service"
+    targetNamespace="http://example.com/calculadora-web-service"  -->
+    <xs:element name="getSomaRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <!-- <xs:element name="soma" type="tns:soma"/> -->
+                <xs:element name="numero01" type="xs:int"/>
+                <xs:element name="numero02" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getSomaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="resultado" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getSubtracaoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="numero01" type="xs:int"/>
+                <xs:element name="numero02" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getSubtracaoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="resultado" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getMultiplicacaoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="numero01" type="xs:int"/>
+                <xs:element name="numero02" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getMultiplicacaoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="resultado" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getDivisaoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="numero01" type="xs:int"/>
+                <xs:element name="numero02" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getDivisaoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="resultado" type="xs:float"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- <xs:complexType name="parametros">
+        <xs:sequence>
+            <xs:element name="numero01" type="xs:decimal"/>
+            <xs:element name="numero02" type="xs:decimal"/>
+        </xs:sequence>
+    </xs:complexType> -->
+    
+    <xs:complexType name="calculadora">
+        <xs:sequence>
+            <xs:element name="soma" type="xs:string"/>
+            <xs:element name="subtracao" type="xs:string"/>
+            <xs:element name="divisao" type="xs:string"/>
+            <xs:element name="multipicacao" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
